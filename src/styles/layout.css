@@ -33,8 +33,8 @@
   width: 38px;
   height: 38px;
   border-radius: 11px;
-  background: #000000; /* logo : carré noir, lettre rouge */
-  color: #ff2d2d;
+  background: #000000; /* logo : carré noir, lettre blanche */
+  color: #ffffff;
   font-family: var(--font-title);
   font-weight: 700;
   font-size: 19px;
