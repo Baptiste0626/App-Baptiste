@@ -1,0 +1,398 @@
+/* ==========================================================================
+   Styles spécifiques aux pages : dashboard, tâches, pipeline, paiements
+   ========================================================================== */
+
+/* ---------- Dashboard ---------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.dashboard-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 1100px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 859.98px) {
+  .dashboard-columns {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .stats-grid {
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .stat-card__value {
+    font-size: 22px;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+
+  .panel--flush {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Tâches ---------- */
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.task-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--warning);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.task-card__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  text-align: left;
+}
+
+.task-card__head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.task-card__name {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.task-card__main:hover .task-card__name {
+  color: var(--accent);
+}
+
+.task-card__company {
+  color: var(--text);
+  font-size: 13.5px;
+}
+
+.task-card__meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.task-card__notes {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .task-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+}
+
+/* ---------- Pipeline (kanban) ---------- */
+.pipeline-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.kanban {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(220px, 1fr));
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  align-items: start;
+}
+
+.kanban__col {
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+  background: #f1f3f6;
+  border: 1px dashed transparent;
+  border-radius: var(--radius-lg);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.kanban__col.is-over {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.kanban__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 14px 10px;
+}
+
+.kanban__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+/* Les pastilles reprennent la couleur pleine du statut */
+.kanban__dot.tone-neutral { background: #9ca3af; }
+.kanban__dot.tone-info { background: var(--accent); }
+.kanban__dot.tone-warning { background: var(--warning); }
+.kanban__dot.tone-violet { background: var(--violet); }
+.kanban__dot.tone-success { background: var(--success); }
+.kanban__dot.tone-danger { background: var(--danger); }
+
+.kanban__title {
+  font-size: 14px;
+}
+
+.kanban__count {
+  margin-left: auto;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.kanban__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 10px 12px;
+  flex: 1;
+}
+
+.kanban__empty {
+  display: grid;
+  place-items: center;
+  min-height: 80px;
+  border: 1.5px dashed var(--border-strong);
+  border-radius: var(--radius);
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.kanban-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  cursor: grab;
+  transition: box-shadow 0.15s, transform 0.15s, opacity 0.15s;
+}
+
+.kanban-card:hover {
+  box-shadow: var(--shadow);
+}
+
+.kanban-card:active {
+  cursor: grabbing;
+}
+
+.kanban-card.is-dragging {
+  opacity: 0.45;
+  transform: rotate(1.5deg);
+}
+
+.kanban-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.kanban-card__name {
+  font-weight: 600;
+}
+
+.kanban-card__grip {
+  color: #c0c5ce;
+}
+
+.kanban-card__company {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.kanban-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.kanban-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 2px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.kanban-card__move {
+  max-width: 120px;
+  height: 28px;
+  padding: 0 6px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--surface);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Colonnes défilables horizontalement avec aimantation sur mobile */
+@media (max-width: 859.98px) {
+  .kanban {
+    grid-template-columns: repeat(6, 82vw);
+    scroll-snap-type: x mandatory;
+    margin: 0 calc(-1 * var(--gutter));
+    padding: 0 var(--gutter) 8px;
+    scroll-padding: 0 var(--gutter);
+  }
+
+  .kanban__col {
+    scroll-snap-align: start;
+    min-height: 240px;
+  }
+
+  .kanban-card__move {
+    font-size: 14px;
+    height: 32px;
+  }
+}
+
+/* ---------- Paiements : carte récapitulative ---------- */
+.summary-card {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.summary-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 18px 20px;
+  border-left: 1px solid var(--border);
+}
+
+.summary-item:first-child {
+  border-left: 0;
+}
+
+.summary-item::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 0;
+  width: 3px;
+  height: 22px;
+  border-radius: 0 3px 3px 0;
+}
+
+.summary-item--info::before { background: var(--accent); }
+.summary-item--success::before { background: var(--success); }
+.summary-item--warning::before { background: var(--warning); }
+.summary-item--danger::before { background: var(--danger); }
+
+.summary-item__label {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.summary-item__value {
+  font-family: var(--font-title);
+  font-size: 22px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.summary-item--success .summary-item__value { color: var(--success); }
+.summary-item--warning .summary-item__value { color: var(--warning-text); }
+.summary-item--danger .summary-item__value { color: var(--danger); }
+
+.summary-item__sub {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+@media (max-width: 1000px) {
+  .summary-card {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .summary-item:nth-child(3) {
+    border-left: 0;
+  }
+
+  .summary-item:nth-child(n + 3) {
+    border-top: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 480px) {
+  .summary-item {
+    padding: 14px;
+  }
+
+  .summary-item__value {
+    font-size: 18px;
+  }
+}
