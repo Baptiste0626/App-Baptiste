@@ -97,7 +97,7 @@
 
 .nav-item.is-active {
   background: var(--accent-soft);
-  color: var(--accent);
+  color: var(--text);
 }
 
 .nav-count {

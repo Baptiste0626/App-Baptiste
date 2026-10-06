@@ -3,7 +3,7 @@
    ========================================================================== */
 
 :root {
-  /* Palette (thème blanc, écritures bleues) */
+  /* Palette (thème blanc, écritures noires, accents bleus) */
   color-scheme: light;
   --bg: #ffffff;
   --surface: #ffffff;
@@ -11,8 +11,8 @@
   --hover: #eef4ff;
   --border: #dbe5f7;
   --border-strong: #b9cbec;
-  --text: #1e40af;
-  --muted: #3b5ba9;
+  --text: #000000;
+  --muted: #000000;
 
   --accent: #2f6fed;
   --accent-hover: #2560d6;

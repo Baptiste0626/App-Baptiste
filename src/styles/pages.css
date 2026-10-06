@@ -98,7 +98,7 @@
 }
 
 .task-card__main:hover .task-card__name {
-  color: var(--accent);
+  color: var(--text);
 }
 
 .task-card__company {
