@@ -59,4 +59,5 @@ src/
 ## Notes
 
 - Les données sont stockées sous la clé `baptiste:data:v1` du `localStorage`. L'application démarre vide ; *Paramètres → Tout effacer* permet de repartir de zéro.
+- Écran d'accueil iPhone/iPad : icône `public/icons/apple-touch-icon.png` (180×180) + `manifest.webmanifest`. Après un changement d'icône, supprimer l'ancien raccourci puis refaire *Partager → Sur l'écran d'accueil* (iOS met l'icône en cache).
 - Responsive : sidebar fixe à partir de 860px, tiroir avec overlay en dessous ; les tableaux deviennent des cartes et les modales des « bottom sheets » sur mobile.
