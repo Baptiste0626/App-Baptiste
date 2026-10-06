@@ -2,9 +2,9 @@
  * Barre latérale de navigation.
  * - Desktop (≥ 860px) : fixe à gauche.
  * - Mobile : tiroir coulissant avec overlay, ouvert depuis la topbar.
- * Le monogramme reprend l'initiale du nom d'utilisateur (Paramètres).
  */
 import Icon from './Icon';
+import Logo from './Logo';
 import { PAGES } from '../utils/constants';
 
 const PAGE_ICONS = {
@@ -18,14 +18,13 @@ const PAGE_ICONS = {
 
 export default function Sidebar({ page, onNavigate, open, onClose, userName, counters }) {
   const name = userName?.trim() || 'Baptiste';
-  const initial = name.charAt(0).toUpperCase();
 
   return (
     <>
       <div className={`sidebar-overlay ${open ? 'is-visible' : ''}`} onClick={onClose} aria-hidden="true" />
       <aside className={`sidebar ${open ? 'is-open' : ''}`} aria-label="Navigation principale">
         <div className="sidebar__brand">
-          <span className="brand-mark" aria-hidden="true">{initial}</span>
+          <Logo size={38} className="brand-logo" />
           <div className="brand-text">
             <span className="brand-name">{name}</span>
             <span className="brand-app">Prospection & paiements</span>

@@ -24,7 +24,7 @@ Puis ouvrir http://localhost:5173.
 - **Prospects** : tableau avec recherche nom/entreprise, filtre par statut, édition en modale, suppression avec confirmation, « Créer une facture » pour les prospects convertis.
 - **Pipeline** : kanban par statut, glisser-déposer natif HTML5 (+ sélecteur de statut sur chaque carte pour les écrans tactiles).
 - **Paiements** : récapitulatif (facturé / encaissé / en attente / en retard), tableau filtrable ; statut « en retard » calculé automatiquement si l'échéance est dépassée sans paiement.
-- **Paramètres** : nom affiché (initiale = monogramme de la sidebar), seuil de relance, devise ; tout effacer.
+- **Paramètres** : nom affiché dans la sidebar, seuil de relance, devise ; tout effacer.
 
 ## Structure
 
@@ -37,6 +37,7 @@ src/
 │   ├── ConfirmDialog.jsx
 │   ├── EmptyState.jsx
 │   ├── Icon.jsx            # Icônes SVG inline
+│   ├── Logo.jsx            # Logo « B » (SVG inline)
 │   ├── Modal.jsx
 │   ├── PaymentModal.jsx
 │   ├── ProspectModal.jsx   # (+ composant Field partagé)

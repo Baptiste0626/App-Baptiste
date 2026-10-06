@@ -44,7 +44,7 @@ export default function Settings({ settings, onSave, onClearData }) {
           <h2 className="panel__title"><Icon name="settings" size={18} /> Préférences</h2>
         </header>
         <div className="form-grid">
-          <Field label="Nom de l'utilisateur affiché" hint="Affiché dans la barre latérale avec son initiale." full>
+          <Field label="Nom de l'utilisateur affiché" hint="Affiché dans la barre latérale, à côté du logo." full>
             <input value={form.userName} onChange={(e) => setForm({ ...form, userName: e.target.value })} placeholder="Baptiste" />
           </Field>
           <Field label="Seuil avant relance (jours)" error={error} hint="Délai sans contact au-delà duquel une relance est due.">
