@@ -153,7 +153,7 @@
   display: flex;
   flex-direction: column;
   min-height: 320px;
-  background: #f1f3f6;
+  background: var(--surface);
   border: 1px dashed transparent;
   border-radius: var(--radius-lg);
   transition: background 0.15s, border-color 0.15s;
@@ -178,7 +178,7 @@
 }
 
 /* Les pastilles reprennent la couleur pleine du statut */
-.kanban__dot.tone-neutral { background: #9ca3af; }
+.kanban__dot.tone-neutral { background: var(--muted); }
 .kanban__dot.tone-info { background: var(--accent); }
 .kanban__dot.tone-warning { background: var(--warning); }
 .kanban__dot.tone-violet { background: var(--violet); }
@@ -193,7 +193,7 @@
   margin-left: auto;
   padding: 0 8px;
   border-radius: 999px;
-  background: var(--surface);
+  background: var(--neutral-soft);
   font-size: 12px;
   font-weight: 600;
   color: var(--muted);
@@ -222,7 +222,7 @@
   flex-direction: column;
   gap: 6px;
   padding: 12px;
-  background: var(--surface);
+  background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
@@ -255,7 +255,7 @@
 }
 
 .kanban-card__grip {
-  color: #c0c5ce;
+  color: var(--border-strong);
 }
 
 .kanban-card__company {
