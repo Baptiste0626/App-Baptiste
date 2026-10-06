@@ -24,7 +24,7 @@ Puis ouvrir http://localhost:5173.
 - **Prospects** : tableau avec recherche nom/entreprise, filtre par statut, édition en modale, suppression avec confirmation, « Créer une facture » pour les prospects convertis.
 - **Pipeline** : kanban par statut, glisser-déposer natif HTML5 (+ sélecteur de statut sur chaque carte pour les écrans tactiles).
 - **Paiements** : récapitulatif (facturé / encaissé / en attente / en retard), tableau filtrable ; statut « en retard » calculé automatiquement si l'échéance est dépassée sans paiement.
-- **Paramètres** : nom affiché (initiale = monogramme de la sidebar), seuil de relance, devise ; recharger la démo / tout effacer.
+- **Paramètres** : nom affiché (initiale = monogramme de la sidebar), seuil de relance, devise ; tout effacer.
 
 ## Structure
 
@@ -52,11 +52,10 @@ src/
     ├── business.js         # Règles métier pures (relances, statuts, totaux)
     ├── constants.js        # Statuts, libellés, options
     ├── dates.js            # Helpers de dates ISO (heure locale)
-    ├── demoData.js         # Données de démo (dates relatives au 1er lancement)
     └── format.js           # Montants, identifiants, recherche
 ```
 
 ## Notes
 
-- Les données sont stockées sous la clé `baptiste:data:v1` du `localStorage`. Pour repartir de la démo : *Paramètres → Recharger les données de démo*.
+- Les données sont stockées sous la clé `baptiste:data:v1` du `localStorage`. L'application démarre vide ; *Paramètres → Tout effacer* permet de repartir de zéro.
 - Responsive : sidebar fixe à partir de 860px, tiroir avec overlay en dessous ; les tableaux deviennent des cartes et les modales des « bottom sheets » sur mobile.

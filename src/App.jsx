@@ -72,18 +72,6 @@ export default function App() {
       },
     });
 
-  const askResetDemo = () =>
-    setModal({
-      kind: 'confirm',
-      data: {
-        title: 'Recharger les données de démo ?',
-        message: 'Toutes vos données actuelles seront remplacées par le jeu de démonstration.',
-        confirmLabel: 'Recharger',
-        danger: false,
-        onConfirm: () => dispatch({ type: 'data/resetDemo' }),
-      },
-    });
-
   const askClearData = () =>
     setModal({
       kind: 'confirm',
@@ -152,7 +140,6 @@ export default function App() {
         <Settings
           settings={settings}
           onSave={(payload) => dispatch({ type: 'settings/update', payload })}
-          onResetDemo={askResetDemo}
           onClearData={askClearData}
         />
       );

@@ -8,7 +8,7 @@ import { Field } from '../components/ProspectModal';
 import { CURRENCIES } from '../utils/constants';
 import { formatMoney } from '../utils/format';
 
-export default function Settings({ settings, onSave, onResetDemo, onClearData }) {
+export default function Settings({ settings, onSave, onClearData }) {
   const [form, setForm] = useState(settings);
   const [error, setError] = useState('');
   const [saved, setSaved] = useState(false);
@@ -33,7 +33,7 @@ export default function Settings({ settings, onSave, onResetDemo, onClearData })
       return;
     }
     setError('');
-    onSave({ userName: form.userName.trim() || 'Yacine', followUpDays: days, currency: form.currency });
+    onSave({ userName: form.userName.trim() || 'Baptiste', followUpDays: days, currency: form.currency });
     setSaved(true);
   };
 
@@ -45,7 +45,7 @@ export default function Settings({ settings, onSave, onResetDemo, onClearData })
         </header>
         <div className="form-grid">
           <Field label="Nom de l'utilisateur affiché" hint="Affiché dans la barre latérale avec son initiale." full>
-            <input value={form.userName} onChange={(e) => setForm({ ...form, userName: e.target.value })} placeholder="Yacine" />
+            <input value={form.userName} onChange={(e) => setForm({ ...form, userName: e.target.value })} placeholder="Baptiste" />
           </Field>
           <Field label="Seuil avant relance (jours)" error={error} hint="Délai sans contact au-delà duquel une relance est due.">
             <input type="number" min="1" max="90" value={form.followUpDays}
@@ -75,7 +75,6 @@ export default function Settings({ settings, onSave, onResetDemo, onClearData })
           entre les sessions mais ne sont pas synchronisées entre appareils.
         </p>
         <div className="form-actions form-actions--start">
-          <button type="button" className="btn btn--soft" onClick={onResetDemo}>Recharger les données de démo</button>
           <button type="button" className="btn btn--danger-soft" onClick={onClearData}>Tout effacer</button>
         </div>
       </section>

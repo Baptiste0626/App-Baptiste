@@ -6,7 +6,6 @@
  * modification est immédiatement sauvegardée.
  */
 import { useEffect, useReducer } from 'react';
-import { createDemoData } from '../utils/demoData';
 import { DEFAULT_SETTINGS } from '../utils/constants';
 import { computePaymentStatus } from '../utils/business';
 import { todayISO } from '../utils/dates';
@@ -14,22 +13,39 @@ import { uid } from '../utils/format';
 
 const STORAGE_KEY = 'baptiste:data:v1';
 
-/** Charge l'état depuis localStorage, ou les données de démo au 1er lancement. */
+/** État vide du premier lancement (aucune donnée fictive). */
+function emptyState() {
+  return { prospects: [], payments: [], settings: { ...DEFAULT_SETTINGS } };
+}
+
+// Anciennes données de démonstration (identifiants p_demo* / f_demo*)
+const isDemoRecord = (item) => /^[pf]_demo/.test(item?.id ?? '');
+
+/** Charge l'état depuis localStorage, ou un état vide au 1er lancement. */
 function loadInitialState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       const saved = JSON.parse(raw);
+      const settings = { ...DEFAULT_SETTINGS, ...(saved.settings || {}) };
+      // Migration : ancien nom par défaut remplacé par « Baptiste »
+      if (settings.userName === 'Yacine') settings.userName = DEFAULT_SETTINGS.userName;
       return {
-        prospects: Array.isArray(saved.prospects) ? saved.prospects : [],
-        payments: Array.isArray(saved.payments) ? saved.payments : [],
-        settings: { ...DEFAULT_SETTINGS, ...(saved.settings || {}) },
+        // Les fiches de démo des versions précédentes sont retirées,
+        // les données saisies par l'utilisateur sont conservées.
+        prospects: Array.isArray(saved.prospects) ? saved.prospects.filter((p) => !isDemoRecord(p)) : [],
+        payments: Array.isArray(saved.payments)
+          ? saved.payments
+              .filter((f) => !isDemoRecord(f))
+              .map((f) => (isDemoRecord({ id: f.prospectId ?? '' }) ? { ...f, prospectId: null } : f))
+          : [],
+        settings,
       };
     }
   } catch {
-    // JSON corrompu ou stockage indisponible : on repart des données de démo
+    // JSON corrompu ou stockage indisponible : on repart d'un état vide
   }
-  return createDemoData();
+  return emptyState();
 }
 
 /** Nettoie / complète un paiement avant enregistrement. */
@@ -90,8 +106,6 @@ function reducer(state, action) {
     /* ---------- Paramètres & données ---------- */
     case 'settings/update':
       return { ...state, settings: { ...state.settings, ...action.payload } };
-    case 'data/resetDemo':
-      return createDemoData();
     case 'data/clear':
       return { prospects: [], payments: [], settings: state.settings };
 

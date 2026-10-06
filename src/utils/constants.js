@@ -68,7 +68,7 @@ export const CURRENCIES = {
 };
 
 export const DEFAULT_SETTINGS = {
-  userName: 'Yacine',
+  userName: 'Baptiste',
   followUpDays: 5,
   currency: 'EUR',
 };

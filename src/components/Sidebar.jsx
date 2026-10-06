@@ -17,7 +17,7 @@ const PAGE_ICONS = {
 };
 
 export default function Sidebar({ page, onNavigate, open, onClose, userName, counters }) {
-  const name = userName?.trim() || 'Yacine';
+  const name = userName?.trim() || 'Baptiste';
   const initial = name.charAt(0).toUpperCase();
 
   return (
@@ -28,7 +28,7 @@ export default function Sidebar({ page, onNavigate, open, onClose, userName, cou
           <span className="brand-mark" aria-hidden="true">{initial}</span>
           <div className="brand-text">
             <span className="brand-name">{name}</span>
-            <span className="brand-app">Baptiste</span>
+            <span className="brand-app">Prospection & paiements</span>
           </div>
           <button className="icon-btn sidebar__close" onClick={onClose} aria-label="Fermer le menu">
             <Icon name="close" />
