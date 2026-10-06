@@ -33,12 +33,12 @@
   width: 38px;
   height: 38px;
   border-radius: 11px;
-  background: linear-gradient(135deg, #2f6fed 0%, #7cb0ff 100%);
-  color: #fff;
+  background: #000000; /* logo : carré noir, lettre rouge */
+  color: #ff2d2d;
   font-family: var(--font-title);
   font-weight: 700;
   font-size: 19px;
-  box-shadow: 0 4px 10px rgba(47, 111, 237, 0.28);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .brand-text {
