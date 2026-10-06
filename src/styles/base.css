@@ -3,35 +3,35 @@
    ========================================================================== */
 
 :root {
-  /* Palette (thème noir, écritures rouges) */
-  color-scheme: dark; /* calendriers, barres de défilement… en mode sombre */
-  --bg: #000000;
-  --surface: #0e0e10;
-  --surface-2: #141417; /* en-têtes de tableaux, pieds de modales */
-  --hover: #1a1a1e;
-  --border: #2a1c1f;
-  --border-strong: #4a2a2f;
-  --text: #ff4d4d;
-  --muted: #c25050;
+  /* Palette (thème blanc, écritures bleues) */
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f5f8ff; /* en-têtes de tableaux, pieds de modales, colonnes kanban */
+  --hover: #eef4ff;
+  --border: #dbe5f7;
+  --border-strong: #b9cbec;
+  --text: #1e40af;
+  --muted: #3b5ba9;
 
-  --accent: #ff2d2d;
-  --accent-hover: #ff4a4a;
-  --accent-soft: rgba(255, 45, 45, 0.14);
-  --on-accent: #000000; /* texte posé sur un fond rouge plein */
+  --accent: #2f6fed;
+  --accent-hover: #2560d6;
+  --accent-soft: #eaf1ff;
+  --on-accent: #ffffff; /* texte posé sur un fond bleu plein */
 
-  --success: #22c55e;
-  --success-soft: rgba(34, 197, 94, 0.14);
+  --success: #16a34a;
+  --success-soft: #e8f6ee;
   --warning: #f59e0b;
-  --warning-text: #fbbf24;
-  --warning-soft: rgba(245, 158, 11, 0.14);
-  --violet: #9b80ff;
-  --violet-soft: rgba(124, 92, 252, 0.18);
-  --danger: #ff3b6b;
-  --danger-soft: rgba(255, 59, 107, 0.16);
-  --neutral-soft: #1c1c20;
+  --warning-text: #b45309;
+  --warning-soft: #fef4e2;
+  --violet: #7c5cfc;
+  --violet-soft: #f0ecff;
+  --danger: #e11d48;
+  --danger-soft: #fdebef;
+  --neutral-soft: #eef2fa;
 
-  --overlay: rgba(0, 0, 0, 0.72);
-  --topbar-bg: rgba(0, 0, 0, 0.85);
+  --overlay: rgba(30, 64, 175, 0.28);
+  --topbar-bg: rgba(255, 255, 255, 0.9);
 
   /* Typographie */
   --font-title: 'Space Grotesk', system-ui, sans-serif;
@@ -41,9 +41,9 @@
   --radius-sm: 8px;
   --radius: 12px;
   --radius-lg: 14px;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.6);
-  --shadow: 0 2px 8px rgba(255, 45, 45, 0.08), 0 1px 2px rgba(0, 0, 0, 0.6);
-  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.8);
+  --shadow-sm: 0 1px 2px rgba(30, 64, 175, 0.06);
+  --shadow: 0 2px 8px rgba(30, 64, 175, 0.08), 0 1px 2px rgba(30, 64, 175, 0.05);
+  --shadow-lg: 0 16px 40px rgba(30, 64, 175, 0.18);
 
   /* Layout */
   --sidebar-w: 248px;
