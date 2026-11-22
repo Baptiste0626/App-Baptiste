@@ -2,7 +2,7 @@
   "name": "iphone18-pro-max-film",
   "private": true,
   "version": "1.0.0",
-  "description": "Film produit 3D procédural de 60 s (Remotion + React Three Fiber)",
+  "description": "Film produit 3D procédural de 60 s de l'iPhone 18 Pro Max (Remotion + React Three Fiber)",
   "scripts": {
     "studio": "remotion studio",
     "render": "remotion render Main4K out/film-4k.mp4",

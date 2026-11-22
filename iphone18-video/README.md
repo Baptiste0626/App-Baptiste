@@ -1,4 +1,9 @@
-# Film produit 3D — smartphone « 18 Pro Max » (60 s, 4K 60 fps)
+# Film produit 3D — iPhone 18 Pro Max (60 s, 4K 60 fps)
+
+Modèle conforme aux caractéristiques officielles de l'iPhone 18 Pro Max :
+163,4 × 78,0 × 8,75 mm, 249 g, aluminium unibody, Ceramic Shield 2 à l'avant et
+Ceramic Shield au dos, écran OLED 6,9" 2868 × 1320 px à 460 ppi (ProMotion 120 Hz),
+puce A20 Pro, coloris Noir, Argent, Glacier et Bordeaux.
 
 Vidéo produit cinématographique entièrement **générée par le code** : modèle 3D
 procédural (aucun `.glb`), matériaux physiques, textures et shaders procéduraux,
