@@ -212,6 +212,8 @@ export const VIDEO = {
     vertical: { id: 'Vertical', width: 1080, height: 1920 },
     /** Composition légère pour prévisualiser rapidement dans le Studio. */
     preview: { id: 'Preview1080p', width: 1920, height: 1080 },
+    /** Aperçu léger 30 fps (partage rapide, rendu sans GPU). */
+    draft: { id: 'Draft540p30', width: 960, height: 540, fps: 30 },
   },
   /**
    * En vertical, l'angle horizontal du cadre vaut l'angle vertical du 16:9

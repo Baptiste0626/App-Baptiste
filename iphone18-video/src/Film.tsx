@@ -15,8 +15,9 @@ import { Stage } from './stage/Stage';
 import { SCENE_RANGES, getShot, sceneIndexAt } from './timeline';
 
 export const Film: React.FC = () => {
-  const frame = useCurrentFrame();
-  const { width, height } = useVideoConfig();
+  const { width, height, fps } = useVideoConfig();
+  // Toute l'animation est écrite à 60 fps : une composition à 30 fps échantillonne une image sur deux.
+  const frame = Math.round((useCurrentFrame() * VIDEO.fps) / fps);
   const shot = useMemo(() => getShot(frame), [frame]);
   const s = Math.min(width, height) / 1080;
   const vertical = height > width;

@@ -17,8 +17,8 @@ export const Root: React.FC = () => (
         key={f.id}
         id={f.id}
         component={Film}
-        durationInFrames={TOTAL_FRAMES}
-        fps={VIDEO.fps}
+        durationInFrames={Math.round((TOTAL_FRAMES * ('fps' in f ? f.fps : VIDEO.fps)) / VIDEO.fps)}
+        fps={'fps' in f ? f.fps : VIDEO.fps}
         width={f.width}
         height={f.height}
       />
